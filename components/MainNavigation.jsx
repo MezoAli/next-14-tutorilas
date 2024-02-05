@@ -4,7 +4,11 @@ import { usePathname } from "next/navigation";
 
 const LINKS = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "Client", href: "/client" },
+  { name: "Drinks", href: "/drinks" },
+  { name: "Prisma-Example", href: "/prisma-example" },
+  { name: "Query", href: "/query" },
+  { name: "Tasks", href: "/tasks" },
 ];
 
 const MainNavigation = () => {
@@ -17,7 +21,7 @@ const MainNavigation = () => {
           <li key={link.name}>
             <Link
               href={link.href}
-              className={isActive && "text-semibold text-blue-500"}
+              className={isActive ? "text-semibold text-blue-500" : undefined}
             >
               {link.name}
             </Link>
