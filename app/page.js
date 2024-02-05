@@ -1,5 +1,3 @@
 export default function Home() {
-  return (
-    <button className="btn btn-error block text-center m-auto">Click Me</button>
-  );
+  return <div className="text-center text-5xl py-5">Home Page</div>;
 }
