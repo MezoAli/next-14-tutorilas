@@ -3,7 +3,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
-  { name: "Home", href: "/" },
   { name: "Client", href: "/client" },
   { name: "Drinks", href: "/drinks" },
   { name: "Prisma-Example", href: "/prisma-example" },
@@ -12,23 +11,25 @@ const LINKS = [
 ];
 
 const MainNavigation = () => {
-  const pathName = usePathname();
   return (
-    <ul className="flex justify-center items-center py-5 bg-black text-white gap-4">
-      {LINKS?.map((link) => {
-        const isActive = pathName === link.href;
-        return (
-          <li key={link.name}>
-            <Link
-              href={link.href}
-              className={isActive ? "text-semibold text-blue-500" : undefined}
-            >
-              {link.name}
+    <nav className="bg-base-300 py-4">
+      <div className="py-8 flex-col sm:flex-row navbar max-w-6xl mx-auto px-8">
+        <ul className="menu menu-horizontal md:ml-8">
+          <li key={"Home"}>
+            <Link href="/" className="btn btn-primary text-2xl mr-4">
+              Next Js
             </Link>
           </li>
-        );
-      })}
-    </ul>
+          {LINKS?.map((link) => {
+            return (
+              <li key={link.name}>
+                <Link href={link.href}>{link.name}</Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </nav>
   );
 };
 
