@@ -11,6 +11,7 @@ const LINKS = [
 ];
 
 const MainNavigation = () => {
+  const pathname = usePathname();
   return (
     <nav className="bg-base-300 py-4">
       <div className="py-8 flex-col sm:flex-row navbar max-w-6xl mx-auto px-8">
@@ -21,9 +22,17 @@ const MainNavigation = () => {
             </Link>
           </li>
           {LINKS?.map((link) => {
+            const isActive = pathname === link.href;
             return (
               <li key={link.name}>
-                <Link href={link.href}>{link.name}</Link>
+                <Link
+                  href={link.href}
+                  className={
+                    isActive ? "btn-active text-xl" : "btn text-xl mx-3"
+                  }
+                >
+                  {link.name}
+                </Link>
               </li>
             );
           })}
