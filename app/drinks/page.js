@@ -11,7 +11,7 @@ const getDrinks = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    throw new Error("Faled to fetch drinks");
   }
 };
 
