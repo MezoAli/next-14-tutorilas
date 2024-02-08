@@ -17,7 +17,7 @@ const getDrinks = async () => {
 
 const DrinksPage = async () => {
   const data = await getDrinks();
-  return <div className="text-center text-5xl py-5">DrinksPage</div>;
+  return <div>Drinks Page</div>;
 };
 
 export default DrinksPage;
