@@ -15,4 +15,5 @@ model Task {
   content String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  completed Boolean @default(false)
 }
