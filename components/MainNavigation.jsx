@@ -22,7 +22,8 @@ const MainNavigation = () => {
             </Link>
           </li>
           {LINKS?.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive =
+              pathname === link.href || pathname.startsWith(link.href);
             return (
               <li key={link.name}>
                 <Link
