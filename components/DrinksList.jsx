@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const DrinksList = ({ drinks }) => {
   return (
-    <ul className="menu menu-vertical pl-0">
+    <ul className="grid grid-cols-2 gap-2 menu pl-0">
       {drinks.map((drink) => (
         <li key={drink.idDrink}>
           <Link

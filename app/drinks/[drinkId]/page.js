@@ -25,7 +25,7 @@ const SingleDrink = async ({ params }) => {
         back to drinks
       </Link>
       <h1 className="text-4xl mb-8">{title}</h1>
-      <Image src={imgSrc} alt={title} width={300} height={300} />
+      <Image src={imgSrc} alt={title} width={300} height={300} priority />
     </div>
   );
 };
