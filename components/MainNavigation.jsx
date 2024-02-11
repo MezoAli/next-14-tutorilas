@@ -6,7 +6,6 @@ const LINKS = [
   { name: "Client", href: "/client" },
   { name: "Drinks", href: "/drinks" },
   { name: "Prisma-Example", href: "/prisma-example" },
-  { name: "Query", href: "/query" },
   { name: "Tasks", href: "/tasks" },
 ];
 

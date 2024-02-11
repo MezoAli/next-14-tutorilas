@@ -1,11 +1,12 @@
 import Link from "next/link";
 import prisma from "../utils/db";
+import { allTasks } from "../actions/tasks";
 const TasksList = async () => {
-  const tasks = await prisma.task.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  const tasks = await allTasks();
+
+  if (tasks.length === 0) {
+    return <p className="text-3xl text-red-900 text-center py-6">No Tasks</p>;
+  }
   return (
     <ul className="flex-col gap-4 max-w-xl flex justify-start ">
       {tasks?.map((task) => {

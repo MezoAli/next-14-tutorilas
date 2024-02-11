@@ -1,8 +1,15 @@
+import { addTask } from "../actions/tasks";
 const AddTaskForm = () => {
   return (
-    <form className=" mb-5">
-      <input type="text" className="border p-3 mr-3 rounded-md w-[75%]" />
-      <button className="btn btn-primary">Create Task</button>
+    <form className="join mb-5 w-full" action={addTask}>
+      <input
+        type="text"
+        name="content"
+        className="input w-full input-bordered join-item"
+      />
+      <button type="submit" className="btn join-item btn-primary">
+        Create Task
+      </button>
     </form>
   );
 };

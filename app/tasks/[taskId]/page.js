@@ -1,7 +1,9 @@
 import React from "react";
+import { getSingleTask } from "../../../actions/tasks";
 
-const EditTaskPage = ({ params }) => {
-  return <div>{params.taskId}</div>;
+const EditTaskPage = async ({ params }) => {
+  const task = await getSingleTask(params.taskId);
+  return <div>{task.content}</div>;
 };
 
 export default EditTaskPage;
