@@ -13,17 +13,21 @@ export const allTasks = async () => {
   return tasks;
 };
 
-export const addTask = async (formData) => {
-  await new Promise((res) => setTimeout(res, 2000));
+export const addTask = async (prevState, formData) => {
   const content = formData.get("content");
 
-  await prisma.task.create({
-    data: {
-      content,
-    },
-  });
+  try {
+    await prisma.task.create({
+      data: {
+        content,
+      },
+    });
 
-  revalidatePath("/tasks");
+    revalidatePath("/tasks");
+    return { message: "Successfully Added Task" };
+  } catch (error) {
+    return { message: "Error Occured!!!" };
+  }
 };
 
 export const getSingleTask = async (id) => {
