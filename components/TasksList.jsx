@@ -16,11 +16,6 @@ const TasksList = async () => {
             key={task.id}
           >
             <div className="flex gap-4 justify-center items-center">
-              <input
-                type="checkbox"
-                className="checkbox"
-                defaultChecked={task.completed}
-              />
               <h2
                 className={`text-2xl font-bold ${
                   task.completed ? "line-through" : undefined
