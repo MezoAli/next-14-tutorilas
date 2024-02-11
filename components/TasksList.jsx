@@ -1,6 +1,6 @@
 import Link from "next/link";
 import prisma from "../utils/db";
-import { allTasks } from "../actions/tasks";
+import { allTasks, deleteTask } from "../actions/tasks";
 const TasksList = async () => {
   const tasks = await allTasks();
 
@@ -36,7 +36,12 @@ const TasksList = async () => {
               >
                 Edit
               </Link>
-              <button className="btn btn-error font-semibold">Delete</button>
+              <form action={deleteTask}>
+                <input className="hidden" name="id" defaultValue={task.id} />
+                <button type="submit" className="btn btn-error font-semibold">
+                  Delete
+                </button>
+              </form>
             </div>
           </li>
         );
