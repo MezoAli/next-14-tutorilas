@@ -15,8 +15,11 @@ const AddTaskForm = () => {
   useEffect(() => {
     if (state.message && state.isError === false) {
       toast.success(state.message);
-    } else {
+      return;
+    }
+    if (state.message && state.isError === true) {
       toast.error(state.message);
+      return;
     }
   }, [state]);
 

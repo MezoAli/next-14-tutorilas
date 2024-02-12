@@ -1,5 +1,4 @@
 import Link from "next/link";
-import prisma from "../utils/db";
 import { allTasks, deleteTask } from "../actions/tasks";
 const TasksList = async () => {
   const tasks = await allTasks();
