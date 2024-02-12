@@ -7,13 +7,16 @@ import toast from "react-hot-toast";
 
 const initialState = {
   message: null,
+  isError: false,
 };
 const AddTaskForm = () => {
   const [state, formAction] = useFormState(addTask, initialState);
 
   useEffect(() => {
-    if (state.message) {
+    if (state.message && state.isError === false) {
       toast.success(state.message);
+    } else {
+      toast.error(state.message);
     }
   }, [state]);
 

@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import prisma from "../utils/db";
 import { redirect } from "next/navigation";
+import { z } from "zod";
 
 export const allTasks = async () => {
   const tasks = await prisma.task.findMany({
@@ -15,8 +16,12 @@ export const allTasks = async () => {
 
 export const addTask = async (prevState, formData) => {
   const content = formData.get("content");
+  const TaskSchema = z.object({
+    content: z.string().trim().min(5, "Should Be At Least 5 Characters"),
+  });
 
   try {
+    TaskSchema.parse({ content });
     await prisma.task.create({
       data: {
         content,
@@ -24,9 +29,10 @@ export const addTask = async (prevState, formData) => {
     });
 
     revalidatePath("/tasks");
-    return { message: "Successfully Added Task" };
+    return { message: "Successfully Added Task", isError: false };
   } catch (error) {
-    return { message: "Error Occured!!!" };
+    console.log(error);
+    return { message: error.errors[0].message, isError: true };
   }
 };
 
