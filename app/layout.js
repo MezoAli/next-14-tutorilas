@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import MainNavigation from "../components/MainNavigation";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <body className={inter.className}>
+        <Toaster position="top-center" reverseOrder={false} />
         <MainNavigation />
         <main className="py-20 px-6 max-w-6xl mx-auto">{children}</main>
       </body>
