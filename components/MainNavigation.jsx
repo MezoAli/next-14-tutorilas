@@ -7,6 +7,7 @@ const LINKS = [
   { name: "Drinks", href: "/drinks" },
   { name: "Prisma-Example", href: "/prisma-example" },
   { name: "Tasks", href: "/tasks" },
+  { name: "Query", href: "/query" },
 ];
 
 const MainNavigation = () => {
