@@ -15,3 +15,19 @@ export async function GET() {
     }
   );
 }
+
+export async function POST(request) {
+  const data = await request.json();
+  const task = await prisma.task.create({
+    data: {
+      content: data.content,
+    },
+  });
+
+  return NextResponse.json(
+    { message: "created task successfully", data: task },
+    {
+      status: 201,
+    }
+  );
+}
