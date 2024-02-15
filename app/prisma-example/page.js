@@ -1,7 +1,5 @@
 import React from "react";
 import prisma from "../../utils/db";
-import { revalidatePath } from "next/cache";
-import Link from "next/link";
 
 const createTask = async () => {
   // await prisma.task.create({
